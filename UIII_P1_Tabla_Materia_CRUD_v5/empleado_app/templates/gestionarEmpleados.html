@@ -1,0 +1,98 @@
+{% extends "base.html"%}
+
+{% block cuerpo  %}
+<div class="row"><!-- la fila-->
+
+<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4"><!-- columna izquierda-->
+    <h1>registros</h1>
+    <div class="card"> <!-- tarjeta -->
+        <div class="card-body">
+            <form action="/registrarEmpleado/" method="POST"> {% csrf_token %} <!-- formulario-->
+                <div class="form-roup">
+                    <input type="text" id="username" name="txtempleado" class="form-control"
+                    placeholder="id del empleado" minLenght="6" maxLenght="6" required>
+                </div>
+                <div class="form-roup py-3">
+                    <input type="text" id="username" name="txtnombre" class="form-control"
+                    placeholder="Nombre Empleado"  maxLenght="100" required>
+                </div>
+                <div class="form-roup py-3">
+                    <input type="text" id="username" name="txtemail" class="form-control"
+                    placeholder="Email"  maxLenght="100" required>
+                </div>
+                <div class="form-roup py-3">
+                    <input type="text" id="username" name="txtcurp" class="form-control"
+                    placeholder="Curp"  maxLenght="100" required>
+                </div>
+                <div class="form-roup py-3">
+                    <input type="text" id="username" name="txtnacimiento" class="form-control"
+                    placeholder="Acta de nacimiento"  maxLenght="100" required>
+                </div>
+                <div class="form-roup py-3">
+                    <input type="text" id="username" name="txtnum" class="form-control"
+                    placeholder="Numero celular"  maxLenght="10" required>
+                </div>
+                <div class="form-roup py-3">
+                    <input type="text" id="username" name="txtrfc" class="form-control"
+                    placeholder="RFC"  maxLenght="100" required>
+                </div>
+                <div class="form-roup py-3">
+                    <input type="text" id="username" name="txtsucursales" class="form-control"
+                    placeholder="ID de las sucursales"  maxLenght="100" required>
+                </div>
+                <div class="form-roup py-3">
+                    <input type="text" id="username" name="txtdireccion" class="form-control"
+                    placeholder="Direccion"  maxLenght="100" required>
+                </div>
+                <div class="form-roup py-2">
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+            </form><!-- formulario-->
+        </div>
+    </div><!-- tarjeta -->
+</div><!-- columna izquierda-->
+
+<div class="col-sm-12 col-md-8 col-lg-8 col-xl-4"><!-- columna derecha-->
+    <h1>Empleados</h1>
+    
+<div class="table-responsive"><!-- tabla responsiva-->
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Id empleado</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Email</th>
+            <th scope="col">Acta de nacimiento</th>
+            <th scope="col">Numero celular</th>
+            <th scope="col">RFC</th>
+            <th scope="col">Id sucursales</th>
+            <th scope="col">Direccion</th>
+            <th colspan="2">Credito</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for m in misempleados %}
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{m.id_empleados}}</td>
+                <td>{{m.nombre}}</td>
+                <td>{{m.email}}</td>
+                <td>{{m.curp}}</td>
+                <td>{{m.acta_de_nacimiento}}</td>
+                <td>{{m.numero_celular}}</td>
+                <td>{{m.rfc}}</td>
+                <td>{{m.id_sucursales}}</td>
+                <td>{{m.direccion}}</td>
+                <td>  <a href="seleccionarEmpleado/{{m.id_empleados}}" class="btn btn-success">Editar</a> </td>  
+                <td>  <a href="borrarEmpleado/{{m.id_empleados}}" class="btn btn-danger">Borrar</a> </td> 
+            </tr>
+            {% endfor %}
+
+        </tbody>
+      </table>
+</div><!-- tabla responsiva-->
+</div><!-- columna derecha-->
+
+</div><!-- la fila-->
+    {% endblock %}

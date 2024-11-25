@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block cuerpo %}
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <!-- la terjeta card-->
+        <div class="card"> <!-- tarjeta -->
+            <div class="card-body">
+                <form action="/editarEmpleado/" method="POST"> {% csrf_token %} <!-- formulario-->
+                    
+                    <div class="form-roup">
+                        <input type="text" id="txtempleado" name="txtempleado" class="form-control"
+                        value="{{misempleados.id_empleados}}" minLenght="6" maxLenght="6" readonly required>
+                    </div>
+                    
+                    <div class="form-roup py-3">
+                        <input type="text" id="txtnombre" name="txtnombre" class="form-control"
+                        value="{{misempleados.nombre}}"  maxLenght="100" required>
+                    </div>
+                    
+                    <div class="form-roup py-3">
+                        <input type="text" id="txtcurp" name="txtcurp" class="form-control"
+                        value="{{misempleados.curp}}"  maxLenght="100" required>
+                    </div>
+
+                    <div class="form-roup py-3">
+                        <input type="text" id="txtnacimiento" name="txtnacimiento" class="form-control"
+                        value="{{misempleados.acta_de_nacimiento}}"  maxLenght="100" required>
+                    </div>
+
+                    <div class="form-roup py-3">
+                        <input type="text" id="txtnum" name="txtnum" class="form-control"
+                        value="{{misempleados.numero_celular}}"  maxLenght="10" required>
+                    </div>
+
+                    <div class="form-roup py-3">
+                        <input type="text" id="txtrfc" name="txtrfc" class="form-control"
+                        value="{{misempleados.rfc}}"  maxLenght="100" required>
+                    </div>
+
+                    <div class="form-roup py-3">
+                        <input type="text" id="txtsucursales" name="txtsucursales" class="form-control"
+                        value="{{misempleados.id_sucursales}}"  maxLenght="6" required>
+                    </div>
+
+                    <div class="form-roup py-3">
+                        <input type="text" id="txtdireccion" name="txtdireccion" class="form-control"
+                        value="{{misempleados.direccion}}"  maxLenght="100" required>
+                    </div>
+                    
+                    <div class="form-roup py-2">
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                    </div>
+                </form><!-- formulario-->
+            </div>
+        </div>
+        <!-- la terjeta card-->
+    </div><!-- columna -->
+</div><!-- la fila -->
+{% endblock %}

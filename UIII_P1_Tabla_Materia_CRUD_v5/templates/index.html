@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% load static %}
+{% block titulo %}<title>Mi peluqueria Camila Rodriguez</title>{% endblock titulo %}
+    {% block cuerpo %}
+    <div class="d-flex flex-column justify-content-center align-items-center">
+        <h1 class="mt-4 mb-4">Mi peluqueria Camila Rodriguez</h1>
+        <img class="w-50" src="{% static 'img/mipeluqueria.jpg' %}" alt="rodriguez" width="400" height="400">
+    </div>
+    {% endblock cuerpo%}
